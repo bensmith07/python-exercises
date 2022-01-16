@@ -1,0 +1,5 @@
+Follow the link below to view a Google Colab Notebook containing
+"101 exercises for Python Fundamentals", completed 10/2021 as 
+pre-work for Codeup Data Science course.
+
+https://colab.research.google.com/drive/1T_Uf5K8JY0JeIS4TQ69Cmt_vy16gPzlG?usp=sharing&authuser=1
