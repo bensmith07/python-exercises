@@ -203,3 +203,25 @@ for i in range(1, num + 1):
     print(str(i).ljust(len(head1)), spacer, \
           str(i**2).ljust(len(head2)), spacer, \
           str(i**3).ljust(len(head3)))
+
+# 5. Convert given number grades into letter grades.
+
+# Prompt the user for a numerical grade from 0 to 100.
+# Display the corresponding letter grade.
+# Prompt the user to continue.
+# Assume that the user will enter valid integers for the grades.
+# The application should only continue if the user agrees to.
+
+score  = int(input('\nEnter a score (0-100): '))
+input('\nPress enter to continue.')
+if score >= 88:
+    print('\nGrade = A')
+elif score >= 80:
+    print('\nGrade = B')
+elif score >= 67:
+    print('\nGrade = C')
+elif score >= 60:
+    print('\nGrade = D')
+else:
+    print('\nGrade = F')
+
