@@ -225,3 +225,33 @@ elif score >= 60:
 else:
     print('\nGrade = F')
 
+
+# Create a list of dictionaries where each dictionary represents a book 
+# that you have read. Each dictionary in the list should have the keys 
+# title, author, and genre. Loop through the list and print out 
+# information about each book.
+
+book_list = [{'title': 'title1', 'author': 'author1', 'genre': 'genre1'},\
+             {'title': 'title2', 'author': 'author2', 'genre': 'genre2'},\
+             {'title': 'title3', 'author': 'author3', 'genre': 'genre3'},\
+             {'title': 'title4', 'author': 'author4', 'genre': 'genre1'}]
+
+for book in book_list:
+    print('Title: ', book['title'], \
+          'Author: ', book['author'], \
+          'Genre: ', book['genre'])
+
+# Prompt the user to enter a genre, then loop through your books list and 
+# print out the titles of all the books in that genre.
+
+genre_list = [book['genre'] for book in book_list]
+
+for genre in genre_list:
+    print(genre)
+
+user_genre = input('''Enter a genre from the list above to see 
+a list of titles from that genre: ''')
+
+for book in book_list:
+    if book['genre'] == user_genre:
+        print(book['title'])
