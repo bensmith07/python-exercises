@@ -83,9 +83,30 @@ def remove_vowels(string1):
     return string1
 
 # 10. Define a function named normalize_name. It should accept a string and 
-#     return a valid python identifier, that is:
+#     return a valid python identifier, that is: 
+#     - anything that is not a valid python identifier should be removed
+#     - leading and trailing whitespace should be removed
+#     - everything should be lowercase
+#     - spaces should be replaced with underscores
 
+def normalize_name(string1):
 
+    # convert all letters to lowercase
+    string1 = string1.lower()
+
+    #replace spaces with underscores
+    string1 = string1.replace(' ', '_')
+    
+    # remove special characters, leaving only alphanumeric and underscores
+    for char in string1:        
+        if not char.isalnum() and char != '_':
+            string1 = string1.replace(char, '')
+    
+    # if the first character is a number, remove it
+    if string1[0].isdigit():
+        string1 = string1.replace(string1[0], '', 1)
+
+    return string1
 
 # 11. Write a function named cumulative_sum that accepts a list of numbers
 #     and returns a list that is the cumulative sum of the numbers in the
@@ -95,7 +116,8 @@ def cumulative_sum(list1):
     sum = 0
     for num in list1:
         sum += num
-    return sum
+    sum_list = [sum]
+    return sum_list
 
 
 
