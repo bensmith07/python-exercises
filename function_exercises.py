@@ -119,5 +119,3 @@ def cumulative_sum(list1):
     sum_list = [sum]
     return sum_list
 
-
-
