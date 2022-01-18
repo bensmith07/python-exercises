@@ -1,3 +1,4 @@
+
 # Create a Python script file named 
 # data_types_and_variables.py. Inside it, write some 
 # Python code, that is, variables and operators, to 
@@ -25,7 +26,7 @@ total_price = (price_per_day
               * days_rented_Hercules)
 
 print()
-print('The total movie rental price is $', total_price)
+print(f'The total movie rental price is ${total_price:,.2f}')
 
 # 2) Suppose you're working as a contractor for 3 companies: 
 # Google, Amazon and Facebook, they pay you a different 
@@ -47,7 +48,7 @@ total_pay = (hourly_rate_Google * hours_worked_Google
             + hourly_rate_Facebook * hours_worked_Facebook)
 
 print()
-print('The total weekly pay is $', total_pay, '.')
+print(f'The total weekly pay is ${total_pay:,.2f}.')
 
 
 # 3) A student can be enrolled to a class only if the class is 
@@ -57,16 +58,17 @@ print('The total weekly pay is $', total_pay, '.')
 def enroll():
     pass
 
+enrollment_success_message = 'Enrollment successful.'
+enrollment_failure_message = 'Student may not enroll in this class.'
+
 class_is_full = False
 class_schedule_conflict = False
 
-if class_is_full == False and class_schedule_conflict == False:
+if class_is_full or class_schedule_conflict:
     enroll()
-    print()
-    print('Enrollment successful.')
+    print(enrollment_failure_message)
 else:
-    print()
-    print('Student may not enroll in this class.')
+    print(enrollment_success_message)
 
 
 # 4)  A product offer can be applied only if people buys more than
@@ -76,6 +78,9 @@ else:
 def apply_offer():
     pass
 
+offer_success_message = '\nOffer successfully applied.'
+offer_failure_message = '\nCannot apply offer. Must be more than 2 items.'
+
 min_items = 3
 
 items_in_cart = 3
@@ -83,17 +88,13 @@ is_premium_member = False
 
 if is_premium_member:
     apply_offer()
-    print()
-    print('Offer successfully applied.')
+    print(offer_success_message)
 else:
     if items_in_cart >= min_items:
         apply_offer()
-        print()
-        print('Offer successfully applied.')
+        print(offer_success_message)
     else:
-        print()
-        print('Cannot apply offer. Must be more than 2 items.')
-
+        print(offer_failure_message)
 
 # 5)  Create a variable that holds a boolean value for each 
 # of the following conditions:
@@ -105,6 +106,9 @@ else:
 
 def create_account():
     pass
+
+success_message = '\nAccount created.'
+failure_message = '\nInvalid username/password combination.'
 
 username = 'codeup'
 password = 'notastrongpassword'
@@ -125,9 +129,6 @@ and username_meets_max_chars \
 and username_password_are_unique \
 and username_password_no_whitespace:
     create_account()
-    print()
-    print('Account created.')
+    print(success_message)
 else:
-    print()
-    print('Invalid username/password combination.')
-
+    print(failure_message)
