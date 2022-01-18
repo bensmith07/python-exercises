@@ -25,7 +25,6 @@ total_price = (price_per_day
               * days_rented_BrotherBear 
               * days_rented_Hercules)
 
-print()
 print(f'The total movie rental price is ${total_price:,.2f}')
 
 # 2) Suppose you're working as a contractor for 3 companies: 
@@ -78,8 +77,8 @@ else:
 def apply_offer():
     pass
 
-offer_success_message = '\nOffer successfully applied.'
-offer_failure_message = '\nCannot apply offer. Must be more than 2 items.'
+offer_success_message = 'Offer successfully applied.'
+offer_failure_message = 'Cannot apply offer. Must be more than 2 items.'
 
 min_items = 3
 
@@ -107,8 +106,8 @@ else:
 def create_account():
     pass
 
-success_message = '\nAccount created.'
-failure_message = '\nInvalid username/password combination.'
+success_message = 'Account created.'
+failure_message = 'Invalid username/password combination.'
 
 username = 'codeup'
 password = 'notastrongpassword'
