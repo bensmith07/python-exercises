@@ -234,3 +234,31 @@ for student in students_lst:
         else:
             pref_counts[1][pref_counts[0].index(student['coffee_preference'])] += 1
 
+ds_best_coffee = pref_counts[0][pref_counts[1].index(max(pref_counts[1]))]
+# note: this will only return one coffee type, even if there are two coffee
+# types tied for most popular among ds students
+#fix it? ___________________________________
+
+
+# 11. What is the least frequent coffee preference 
+#     for web development students?
+
+pref_counts = [[],[]]
+for student in students_lst:
+    if student['course'] == 'web development':
+        if student['coffee_preference'] not in pref_counts[0]:
+            pref_counts[0].append(student['coffee_preference'])
+            pref_counts[1].append(1)
+        else:
+            pref_counts[1][pref_counts[0].index(student['coffee_preference'])] += 1
+
+webdev_worst_coffee = pref_counts[0][pref_counts[1].index(min(pref_counts[1]))]
+#note: this only returns one of the values when there is a tie
+#fix it? _____________________________
+
+webdev_worst_coffee = []
+for count in pref_counts[1]:
+    if count == min(pref_counts[1]):
+        webdev_worst_coffee.append(pref_counts[0][pref_counts[1].index(count)])
+        ### ^^^ not correct ^^^
+
