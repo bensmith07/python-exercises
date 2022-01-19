@@ -136,25 +136,22 @@ n_prefer_light = len([
 # ??????????????????????????????????????????????????????
 
 # 3. How many [of each type of pet] are there?
+#    ANSWER: 4 horses, 11 cats, 3 dogs
  
-#create a list of unique pet species values 
-species_lst = []
+species_counts = [[],[]]
 for student in students_lst:
     for pet in student['pets']:
-        species_lst.append(pet['species'])
-species_lst = list(set(species_lst))
-# result: ['cat', 'dog', horse]
+        if pet['species'] not in species_counts[0]:
+            species_counts[0].append(pet['species'])
+            species_counts[1].append(1)
+        else:
+            species_counts[1][species_counts[0].index(pet['species'])] += 1
 
-pets_table = [[],[]]
-for species in species_lst:
-    pets_table[0].append(species)
-    pets_table[1].append(len(#list of students who has that pet type
-                             #include student mult times if have mult pets
-                             #of same type
-                             [
 
-                             ]
-                            ))
+
+        
+
+
 
 
 
