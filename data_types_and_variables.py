@@ -64,9 +64,9 @@ class_is_full = False
 class_schedule_conflict = False
 
 if class_is_full or class_schedule_conflict:
-    enroll()
     print(enrollment_failure_message)
 else:
+    enroll()
     print(enrollment_success_message)
 
 
@@ -118,15 +118,15 @@ max_chars = 20
 password_meets_min_chars = len(password) >= min_chars
 username_meets_max_chars = len(username) <= max_chars
 username_password_are_unique = username != password
-username_password_no_whitespace = (username[0].isspace() == False \
-                                  and username[-1].isspace() == False \
-                                  and password[0].isspace() == False \
+username_password_no_whitespace = (username[0].isspace() == False
+                                  and username[-1].isspace() == False
+                                  and password[0].isspace() == False
                                   and password[-1].isspace() == False)
 
-if password_meets_min_chars \
-and username_meets_max_chars \
-and username_password_are_unique \
-and username_password_no_whitespace:
+if (password_meets_min_chars
+and username_meets_max_chars
+and username_password_are_unique
+and username_password_no_whitespace):
     create_account()
     print(success_message)
 else:
