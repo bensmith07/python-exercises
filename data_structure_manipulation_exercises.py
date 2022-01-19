@@ -1,4 +1,4 @@
-students_lst = [
+students_lst = [                                                             #
     {
         "id": "100001",
         "student": "Ada Lovelace",
@@ -175,6 +175,62 @@ for student in students_lst:
     grade_avgs[0].append(student['id'])
     grade_avgs[1].append(sum(student['grades']) / len(student['grades']))
 
+# 6. How many pets does each student have?
 
+pet_counts = [[],[]]
+for student in students_lst:
+    pet_counts[0].append(student['id'])
+    pet_counts[1].append(0)
+    for pet in student['pets']:
+        pet_counts[1][pet_counts[0].index(student['id'])] += 1
 
-        
+# 7. How many students are in web development? 
+#    ANSWER: 7
+
+n_webdev_students = 0
+for student in students_lst:
+    if student['course'] == 'web development':
+        n_webdev_students += 1
+
+# 7a. How many students are in data science?
+#     ANSWER: 7
+
+n_ds_students = 0
+for student in students_lst:
+    if student['course'] == 'data science':
+        n_ds_students += 1
+
+# 8. What is the average number of pets for students in web development?
+#    ANSWER: 1.3
+
+pet_count_lst = []
+for student in students_lst:
+    if student['course'] == 'web development':
+        pet_count = 0
+        for pet in student['pets']:
+            pet_count += 1
+        pet_count_lst.append(pet_count)
+
+avg_pets = sum(pet_count_lst) / len(pet_count_lst)
+
+# 9. What is the average pet age for students in data science?
+#    ANSWER: 5.4
+
+pet_age_lst = []
+for student in students_lst:
+    if student['course'] == 'data science':
+        for pet in student['pets']:
+            pet_age_lst.append(pet['age'])
+avg_pet_age = sum(pet_age_lst) / len(pet_age_lst)
+
+# 10. What is most frequent coffee preference for data science students?
+
+pref_counts = [[],[]]
+for student in students_lst:
+    if student['course'] == 'data science':
+        if student['coffee_preference'] not in pref_counts[0]:
+            pref_counts[0].append(student['coffee_preference'])
+            pref_counts[1].append(1)
+        else:
+            pref_counts[1][pref_counts[0].index(student['coffee_preference'])] += 1
+
