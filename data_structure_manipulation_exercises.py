@@ -125,15 +125,15 @@ n_students = len(students_lst)
 # 2. How many students prefer light coffee? 
 #    ANSWER: 3
 
-n_prefer_light = len([
-                       student['id'] 
-                       for student in students_lst 
-                       if student['coffee_preference'] == 'light'
-                     ])   
+n_prefer_light = 0
+for student in students_lst:
+    if student['coffee_preference'] == 'light':
+        n_prefer_light += 1 
 
 # 2a. For each type of coffee roast?
 
-# ??????????????????????????????????????????????????????
+# ___________________________________________
+
 
 # 3. How many [of each type of pet] are there?
 #    ANSWER: 4 horses, 11 cats, 3 dogs
