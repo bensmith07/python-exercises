@@ -1,4 +1,4 @@
-#####################
+#####################                                                        .
 # 1 Conditional Basics 
 
 #    a. Prompt the user for the day of the week, print out whether it   
@@ -92,7 +92,7 @@ while i >= 5:
 
 num = input('Enter a whole number: ')
 for i in range(1, 11):
-    print(num, ' x ', i, ' = ', int(num) * i) # ??? why is this printing the quotes ???
+    print(num, ' x ', i, ' = ', int(num) * i)
 
 # Create a for loop that uses print to create the [given output]
 
@@ -153,7 +153,9 @@ for i in range(num, 0, -1):
 
 # 3. Fizzbuzz
 
-# One of the most common interview questions for entry-level programmers is the FizzBuzz test. Developed by Imran Ghory, the test is designed to test basic looping and conditional logic skills.
+# One of the most common interview questions for entry-level programmers is 
+# the FizzBuzz test. Developed by Imran Ghory, the test is designed to test 
+# basic looping and conditional logic skills.
 
 #    Write a program that prints the numbers from 1 to 100.
 #    For multiples of three print "Fizz" instead of the number
@@ -200,9 +202,14 @@ print('-' * len(head1), spacer, \
       '-' * len(head3))
 
 for i in range(1, num + 1):
-    print(str(i).ljust(len(head1)), spacer, \
-          str(i**2).ljust(len(head2)), spacer, \
-          str(i**3).ljust(len(head3)))
+    print(str(i).rjust(len(head1)), spacer, \
+          str(i**2).rjust(len(head2)), spacer, \
+          str(i**3).rjust(len(head3)))
+
+# BONUS: align the table using string formatting:
+
+# ______________________________________________
+
 
 # 5. Convert given number grades into letter grades.
 
@@ -226,32 +233,62 @@ else:
     print('\nGrade = F')
 
 
-# Create a list of dictionaries where each dictionary represents a book 
+# Create a list of dictionaries where each dictionary represents a book      
 # that you have read. Each dictionary in the list should have the keys 
 # title, author, and genre. Loop through the list and print out 
 # information about each book.
 
-book_list = [{'title': 'title1', 'author': 'author1', 'genre': 'genre1'},\
-             {'title': 'title2', 'author': 'author2', 'genre': 'genre2'},\
-             {'title': 'title3', 'author': 'author3', 'genre': 'genre3'},\
-             {'title': 'title4', 'author': 'author4', 'genre': 'genre1'}]
+book_lst = [
+    {
+        'title': 'Sapiens: A Brief History of Humankind', 
+        'author': 'Yuval Noah Harari', 
+        'genre': ['non-fiction', 'history']
+    },
+    {
+        'title': 'Brave New World', 
+        'author': 'Aldous Huxley',
+        'genre': ['science fiction', 'dystopian fiction']
+    },
+    {
+        'title': 'Little and Often: A Memoir', 
+        'author': 'Trent Preszler', 
+        'genre': ['non-fiction', 'memoir']
+    },
+    {
+        'title': 'The Black Swan: The Impact of the Highly Improbable', 
+        'author': 'Nassim Nicholas Taleb', 
+        'genre': ['non-fiction']
+    },
+    {
+        'title': 'Educated', 
+        'author': 'Tara Westover', 
+        'genre': ['non-fiction', 'memoir'] 
+    },
+    {
+        'title': 'Naked Statistics: Stripping the Dread from the Data', 
+        'author': 'Charles Wheelan', 
+        'genre': ['non-fiction', 'statistics'] 
+    }
+]
 
-for book in book_list:
-    print('Title: ', book['title'], \
-          'Author: ', book['author'], \
-          'Genre: ', book['genre'])
+for book in book_lst:
+    print('\nTitle: ', book['title'],
+          '\nAuthor: ', book['author'],
+          '\nGenre: ', book['genre'])
 
 # Prompt the user to enter a genre, then loop through your books list and 
 # print out the titles of all the books in that genre.
 
-genre_list = [book['genre'] for book in book_list]
+genre_lst = []
+for book in book_lst:
+    for genre in book['genre']:
+        if genre not in genre_lst:
+            genre_lst.append(genre)
 
-for genre in genre_list:
-    print(genre)
-
+print(genre_lst)
 user_genre = input('''Enter a genre from the list above to see 
 a list of titles from that genre: ''')
 
-for book in book_list:
-    if book['genre'] == user_genre:
+for book in book_lst:
+    if user_genre in book['genre']:
         print(book['title'])
