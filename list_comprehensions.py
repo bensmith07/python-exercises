@@ -47,6 +47,10 @@ def count_vowels(word):
 
 fruits_with_more_than_two_vowels = [i for i in fruits if count_vowels(i) > 2]
 
+# alternative solution using only list comprehensions:
+
+[word for word in fruits if len([letter for letter in word if letter in 'aeiou']) > 2]
+
 # Exercise 4 - make a variable named fruits_with_only_two_vowels. 
 # The result should be ['mango', 'kiwi', 'strawberry']
 
