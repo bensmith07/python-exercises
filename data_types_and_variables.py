@@ -57,17 +57,17 @@ print(f'The total weekly pay is ${total_pay:,.2f}.')
 def enroll():
     pass
 
-enrollment_success_message = 'Enrollment successful.'
-enrollment_failure_message = 'Student may not enroll in this class.'
+success_message = 'Enrollment successful.'
+failure_message = 'Student may not enroll in this class.'
 
 class_is_full = False
 class_schedule_conflict = False
 
 if class_is_full or class_schedule_conflict:
-    print(enrollment_failure_message)
+    print(failure_message)
 else:
     enroll()
-    print(enrollment_success_message)
+    print(success_message)
 
 
 # 4)  A product offer can be applied only if people buys more than
@@ -84,16 +84,18 @@ min_items = 3
 
 items_in_cart = 3
 is_premium_member = False
+offer_expired = False
 
-if is_premium_member:
-    apply_offer()
-    print(offer_success_message)
-else:
-    if items_in_cart >= min_items:
+if not offer_expired:
+    if is_premium_member:
         apply_offer()
         print(offer_success_message)
     else:
-        print(offer_failure_message)
+        if items_in_cart >= min_items:
+            apply_offer()
+            print(offer_success_message)
+        else:
+            print(offer_failure_message)
 
 # 5)  Create a variable that holds a boolean value for each 
 # of the following conditions:
@@ -118,10 +120,7 @@ max_chars = 20
 password_meets_min_chars = len(password) >= min_chars
 username_meets_max_chars = len(username) <= max_chars
 username_password_are_unique = username != password
-username_password_no_whitespace = (username[0].isspace() == False
-                                  and username[-1].isspace() == False
-                                  and password[0].isspace() == False
-                                  and password[-1].isspace() == False)
+username_password_no_whitespace = username == username.strip()
 
 if (password_meets_min_chars
 and username_meets_max_chars
