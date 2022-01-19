@@ -131,8 +131,15 @@ for student in students_lst:
         n_prefer_light += 1 
 
 # 2a. For each type of coffee roast?
+#     ANSWER: 3 light, 6 medium, 5 dark
 
-# ___________________________________________
+pref_counts = [[],[]]
+for student in students_lst:
+    if student['coffee_preference'] not in pref_counts[0]:
+        pref_counts[0].append(student['coffee_preference'])
+        pref_counts[1].append(1)
+    else:
+        pref_counts[1][pref_counts[0].index(student['coffee_preference'])] += 1
 
 
 # 3. How many [of each type of pet] are there?
@@ -147,11 +154,27 @@ for student in students_lst:
         else:
             species_counts[1][species_counts[0].index(pet['species'])] += 1
 
+# 4. How many grades does each student have? 
+#    ANSWER: all have 4 grades
+
+grade_counts = [[],[]]
+for student in students_lst:
+    grade_counts[0].append(student['id'])
+    grade_counts[1].append(len(student['grades'])) 
+ 
+# 4a. Do they all have the same number of grades?
+#     ANSWER: yes
+
+same_num_grades = len(set(grade_counts[1])) == 1
+# result = True
+
+# 5. What is each student's grade average?
+
+grade_avgs = [[],[]]
+for student in students_lst:
+    grade_avgs[0].append(student['id'])
+    grade_avgs[1].append(sum(student['grades']) / len(student['grades']))
+
 
 
         
-
-
-
-
-
