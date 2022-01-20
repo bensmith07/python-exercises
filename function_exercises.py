@@ -1,52 +1,93 @@
-# 1. Define a function named is_two. It should accept one input and return 
-#    True if the passed input is either the number or the string 2, 
-#    False otherwise.
+### 1. Define a function named is_two. It should accept one input and return #
+###    True if the passed input is either the number or the string 2, 
+###    False otherwise.
 
-def is_two(num):
-    if num in [2, '2']:
+# the is_two function accepts a single parameter <num> which could be any 
+# value, and returns a boolean value based on whether that value is the 
+# number 2 or the string '2'
+def is_two(val):
+    # determine whether the value is the number 2 or the string '2'
+    if val in [2, '2']:
+        # if so, return True
         return True
     else:
+        # otherwise, return False
         return False
 
-# 2. Define a function named is_vowel. It should return True if the passed 
-#    string is a vowel, False otherwise.
+### 2. Define a function named is_vowel. It should return True if the passed 
+###    string is a vowel, False otherwise.
 
+# The is_vowel() function accepts a single parameter <letter>, which is 
+# expected to be a single-character string. The function will return a 
+# boolean value based on whether the character is a vowel.
+# We will assume the input will always be a string value.
 def is_vowel(letter):
+    # Make the input string uppercase, then determine whether it matches
+    # any character in our list of uppercase vowels.
     if letter.upper() in ['A', 'E', 'I', 'O', 'U']:
+        # If so, return True.
         return True
     else:
+        # Otherwise, return False.
         return False
 
-# 3. Define a function named is_consonant. It should return True if the 
-# passed string is a consonant, False otherwise. Use your is_vowel 
-# function to accomplish this.
+### 3. Define a function named is_consonant. It should return True if the 
+### passed string is a consonant, False otherwise. Use your is_vowel 
+### function to accomplish this.
 
+# The is_consontant() accepts a single parameter <letter>, which is expected
+# to be a single-character string. The function will return a boolean value
+# based on whether that character is a consonant. We will assume the input
+# is a valid string value. 
 def is_consonant(letter):
+    # Use the previously defined function is_vowel() to determine whether
+    # the character is a vowel
     if is_vowel(letter):
+        # If it is a vowel, it must not be a consonant, so we return False.
         return False
     else:
+        # If it is not a vowel, it is a consonant, so we return True. 
         return True
 
-# 4. Define a function that accepts a string that is a word. The 
-#    function should capitalize the first letter of the word if the 
-#    word starts with a consonant.
+### 4. Define a function that accepts a string that is a word. The 
+###    function should capitalize the first letter of the word if the 
+###    word starts with a consonant.
 
+# The capitalize() function will accept a single parameter <word>, which is
+# expected to be a single string value containing words. If the first letter
+# of the string is a consonant, the function will return a new version of 
+# the string with the first letter of each word capitalized. We will assume
+# the input is a valid string value. 
 def capitalize(word):
+    # Use the previously defined is_consonant() function to determine 
+    # whether the first letter of the input string is a consonant.
     if is_consonant(word[0]):
+        # If so, use the capitalize() built-in string method to return 
+        # a version of the string with the first letter of each word 
+        # capitalized.
         return word.capitalize()
     else:
+        # Otherwise, return the input string unchanged. 
         return word
 
-# 5. Define a function named calculate_tip. It should accept a tip 
-# percentage (a number between 0 and 1) and the bill total, and return 
-# the amount to tip.
+### 5. Define a function named calculate_tip. It should accept a tip 
+### percentage (a number between 0 and 1) and the bill total, and return 
+### the amount to tip.
 
+# The calculate_tip() function accepts two parameters, which are expected
+# to be numbers. The first parameter <rate> is the desired tip percentage
+# in the form of a float between 0 and 1. The second parameter <total>
+# is the total bill prior to the tip amount being applied. The function 
+# will return a float which is the required tip amount. We will assume the 
+# inputs are valid number values
 def calculate_tip(rate, total):
+    # Multiply the tip percentage by the bill total and return the result
+    # as the required tip amount
     return rate * total
 
-# 6. Define a function named apply_discount. It should accept a original 
-#    price, and a discount percentage, and return the price after the 
-#    discount is applied.
+### 6. Define a function named apply_discount. It should accept a original 
+###    price, and a discount percentage, and return the price after the 
+###    discount is applied.
 
 def apply_discount(price, discount):
     return price * (1 - discount)
