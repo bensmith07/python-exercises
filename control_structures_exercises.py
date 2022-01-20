@@ -1,4 +1,4 @@
-#####################                                                        .
+#####################                                                        #                         .
 # 1 Conditional Basics 
 
 #    a. Prompt the user for the day of the week, print out whether it   
@@ -31,12 +31,16 @@ print()
 ## Write the python code that calculates the weekly paycheck. You get
 ## paid time and a half if you work more than 40 hours
 
-hours_worked = 40
-hourly_rate = 20
-if hours_worked <= 40:
-    paycheck = hours_worked * hourly_rate
+hours_worked = 42
+hourly_pay = 14.89
+ot_cutoff = 40
+ot_rate = 1.5
+
+if hours_worked <= ot_cutoff:
+    paycheck = hours_worked * hourly_pay
 else:
-    paycheck = (40 * hourly rate) + ((hours_worked - 40) * hourlyrate)
+    paycheck = ((ot_cutoff * hourly_pay)
+             + ((hours_worked - ot_cutoff) * hourly_pay * ot_rate))
 
 ##############
 # LOOP BASICS
@@ -59,7 +63,7 @@ while i <= 15:
 
 i = 0
 while i <= 100:
-    print(i, '\n')
+    print(i)
     i += 2
 
 # Alter your loop to count backwards by 5's from 100 to -10.
@@ -73,7 +77,7 @@ while i >= -10:
 # squared on each line while the number is less than 1,000,000. 
 
 i = 2 
-while i < 1000000:
+while i < 1_000_000:
     print(i)
     i = i**2
 
@@ -96,14 +100,11 @@ for i in range(1, 11):
 
 # Create a for loop that uses print to create the [given output]
 
-n = 1
 for i in range(1, 10):
-    print(str(i) * n)
-    n += 1
+    print(str(i) * i)
 
 ###########################
-# c. BREAK AND CONTINUE            !! - I still need to figure out how to 
-#                                       solve these with break/continue
+# c. BREAK AND CONTINUE
 
 # Prompt the user for an odd number between 1 and 50. Use a loop 
 # and a break statement to continue prompting the user if they 
@@ -123,6 +124,7 @@ print('Number to skip is: ', num)
 for i in range(1, 50, 2):
     if i != num: 
         print('Here is an odd number: ', i)
+        continue
     else:
         print('Yikes! Skipping number: ', i)
 
@@ -335,9 +337,15 @@ book_lst = [
 ]
 
 for book in book_lst:
-    print('\nTitle: ', book['title'],
-          '\nAuthor: ', book['author'],
-          '\nGenre: ', book['genre'])
+    for key in book:
+        if key == 'genre':
+            print('genres: ', book['genre'][0])
+            for idx in range(1, len(book['genre'])):
+                print('\t', book['genre'][idx])
+        else:
+            print(key, ': ', book[key])
+    print()
+
 
 # Prompt the user to enter a genre, then loop through your books list and 
 # print out the titles of all the books in that genre.
