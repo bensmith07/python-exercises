@@ -197,13 +197,13 @@ for i in range(1, 101):
     else:
         print(i)
 
-# 4. Display a table of powers.
+### 4. Display a table of powers.
 
-#    Prompt the user to enter an integer.
-#    Display a table of squares and cubes from 1 to the value entered.
-#    Ask if the user wants to continue.
-#    Assume that the user will enter valid data.
-#    Only continue if the user agrees to.
+###   Prompt the user to enter an integer.
+###    Display a table of squares and cubes from 1 to the value entered.
+###    Ask if the user wants to continue.
+###    Assume that the user will enter valid data.
+###    Only continue if the user agrees to.
 
 num = int(input('Enter a positive whole number: '))
 input('\nPress Enter to Continue.')
@@ -211,38 +211,76 @@ print('\nTable of powers:')
 for i in range(1, num + 1):
     print(i, ' ', i**2, i**3)
 
-# BONUS: align the table:
+### BONUS: align the table using string formatting:
 
+# get user input
+num = int(input('Enter a positive whole number: '))
+input('\nPress Enter to Continue.')
+
+# establish table formatting variables
+head1 = 'number'  # heading for first column
+head2 = 'squared' # heading for second column
+head3 = 'cubed'   # heading for third column
+spacer1 = ' | '   # spacer 1, for a divider between columns
+spacer2 = '-'     # spacer 2, for a divider under column headings
+p = 7             # number of characters to pad
+
+# print the table title
+print('\nTable of powers:')
+
+#print the column headings
+print(f'{head1:>{p}}{spacer1}\
+{head2:>{p}}{spacer1}\
+{head3:>{p}}')
+
+# print dividers under the column headings
+print(f'{spacer2*(len(head1)):>{p}}{spacer1}\
+{spacer2*(len(head2)):>{p}}{spacer1}\
+{spacer2*(len(head3)):>{p}}')
+
+# print the contents of the table, with dividers
+for i in range(1, num + 1):
+    print(f'{i:>{p}}{spacer1}\
+{(i**2):>{p}}{spacer1}\
+{(i**3):>{p}}')
+
+### alternative method of aligning the table
+
+# get user input
+num = int(input('Enter a positive whole number: '))
+input('\nPress Enter to Continue.')
+
+# establilsh table formatting variables
 head1 = 'number'
 head2 = 'squared'
 head3 = 'cubed'
 spacer = ' | '
 
-num = int(input('Enter a positive whole number: '))
-input('\nPress Enter to Continue.')
+# print table title
 print('\nTable of powers:')
+
+# print column headings with dividers
 print(head1, spacer, head2, spacer, head3)
+
+# print divider under column headings
 print('-' * len(head1), spacer, \
       '-' * len(head2), spacer, \
       '-' * len(head3))
 
+#print contents of table, with dividers
 for i in range(1, num + 1):
     print(str(i).rjust(len(head1)), spacer, \
           str(i**2).rjust(len(head2)), spacer, \
           str(i**3).rjust(len(head3)))
 
-# BONUS: align the table using string formatting:
 
-# ______________________________________________
+### 5. Convert given number grades into letter grades.
 
-
-# 5. Convert given number grades into letter grades.
-
-# Prompt the user for a numerical grade from 0 to 100.
-# Display the corresponding letter grade.
-# Prompt the user to continue.
-# Assume that the user will enter valid integers for the grades.
-# The application should only continue if the user agrees to.
+### Prompt the user for a numerical grade from 0 to 100.
+### Display the corresponding letter grade.
+### Prompt the user to continue.
+### Assume that the user will enter valid integers for the grades.
+### The application should only continue if the user agrees to.
 
 score  = int(input('\nEnter a score (0-100): '))
 input('\nPress enter to continue.')
