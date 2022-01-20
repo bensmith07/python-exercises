@@ -224,6 +224,7 @@ for student in students_lst:
 avg_pet_age = sum(pet_age_lst) / len(pet_age_lst)
 
 # 10. What is most frequent coffee preference for data science students?
+#     ANSWER: medium
 
 pref_counts = [[],[]]
 for student in students_lst:
@@ -234,14 +235,16 @@ for student in students_lst:
         else:
             pref_counts[1][pref_counts[0].index(student['coffee_preference'])] += 1
 
-ds_best_coffee = pref_counts[0][pref_counts[1].index(max(pref_counts[1]))]
-# note: this will only return one coffee type, even if there are two coffee
-# types tied for most popular among ds students
-#fix it? ___________________________________
+ds_best_coffee = []
+for idx in range(len(pref_counts[1])):
+    if pref_counts[1][idx] == max(pref_counts[1]):
+        ds_best_coffee.append(pref_counts[0][idx])
+
 
 
 # 11. What is the least frequent coffee preference 
 #     for web development students?
+#     ANSWER: dark & medium
 
 pref_counts = [[],[]]
 for student in students_lst:
@@ -252,13 +255,91 @@ for student in students_lst:
         else:
             pref_counts[1][pref_counts[0].index(student['coffee_preference'])] += 1
 
-webdev_worst_coffee = pref_counts[0][pref_counts[1].index(min(pref_counts[1]))]
-#note: this only returns one of the values when there is a tie
-#fix it? _____________________________
-
 webdev_worst_coffee = []
-for count in pref_counts[1]:
-    if count == min(pref_counts[1]):
-        webdev_worst_coffee.append(pref_counts[0][pref_counts[1].index(count)])
-        ### ^^^ not correct ^^^
+for idx in range(len(pref_counts[1])):
+    if pref_counts[1][idx] == min(pref_counts[1]):
+        webdev_worst_coffee.append(pref_counts[0][idx])
 
+# 12. What is the average grade for students with at least 2 pets?
+#     ANSWER: 83.8
+
+grade_lst = []
+
+for student in students_lst:
+
+    pet_count = 0
+    for pet in student['pets']:
+        pet_count += 1
+
+    if pet_count >= 2:
+        
+        for grade in student['grades']:
+            grade_lst.append(grade)
+
+two_pet_avg_grade = sum(grade_lst) / len(grade_lst)
+
+# 13. How many students have 3 pets?
+#     ANSWER: 1
+
+three_pet_students_count = 0
+for student in students_lst:
+    if len(student['pets']) == 3:
+        three_pet_students_count += 1
+
+# 14. What is the average grade for students with 0 pets?
+#     ANSWER: 82.125
+
+grade_lst = []
+
+for student in students_lst:
+
+    pet_count = 0
+    for pet in student['pets']:
+        pet_count += 1
+
+    if pet_count == 0:
+        
+        for grade in student['grades']:
+            grade_lst.append(grade)
+
+no_pet_avg_grade = sum(grade_lst) / len(grade_lst)
+
+# 15. What is the average grade for web development students? 
+#     ANSWER: 81.179
+
+grade_lst = []
+
+for student in students_lst:
+
+    if student['course'] == 'web development':
+        
+        for grade in student['grades']:
+            grade_lst.append(grade)
+
+webdev_avg_grade = sum(grade_lst) / len(grade_lst)
+
+
+# 15a. What is the average garde for data science students?
+#      ANSWER: 84.679
+
+grade_lst = []
+
+for student in students_lst:
+
+    if student['course'] == 'data science':
+        
+        for grade in student['grades']:
+            grade_lst.append(grade)
+
+ds_avg_grade = sum(grade_lst) / len(grade_lst)
+
+# 16. What is the average grade range (i.e. highest grade - lowest grade) 
+#     for dark coffee drinkers?
+
+range_lst = []
+for student in students_lst:
+    if student['coffee_preference'] == 'dark':
+        range_lst.append(max(student['grades']) - min(student['grades']))
+dark_avg_range = sum(range_lst) / len(range_lst)
+
+# 17. What is the average number of pets for medium coffee drinkers?
