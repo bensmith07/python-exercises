@@ -112,14 +112,19 @@ for i in range(1, 10):
 # output all the odd numbers between 1 and 50, except for the 
 # number the user entered.
 
-num = int(input('Enter an odd (whole) number between 1 and 50: '))
-while num not in range(1, 50, 2):
-    num = int(input('Enter an odd (whole) number between 1 and 50: '))
+while True:
+    num = input('Enter an odd whole number between 1 and 50: ')
+    if num.isdigit():
+        num = int(num)
+        if num % 2 == 1 and num <= 50:
+            break
 
 print('Number to skip is: ', num)
 for i in range(1, 50, 2):
     if i != num: 
         print('Here is an odd number: ', i)
+    else:
+        print('Yikes! Skipping number: ', i)
 
 # Prompt the user to enter a positive number and write a loop that 
 # counts from 0 to that number. (Hints: first make sure that the 
@@ -127,9 +132,18 @@ for i in range(1, 50, 2):
 # function returns a string, so you'll need to convert this to a 
 # numeric type.)
 
+while True:
+    num = input('Enter a positive whole number: ')
+    if num.isdigit():
+        break
+num = int(num)
+for i in range(num + 1):
+    print(i)
+
+# alternative solution without break/continue
+
 num = input('Enter a positive whole number: ')
-while (num.isdigit() == False) or (int(num) % 1 != 0) or (int(num) <= 0):
-    print()
+while not num.isdigit():
     num = input('Invalid entry. Enter a positive whole number: ')
 
 num = int(num)
@@ -141,9 +155,20 @@ for i in range(num + 1):
 # Next write a loop that prints out the numbers from the number the 
 # user entered down to 1.
 
+while True:
+    num = input('Enter a positive whole number: ')
+    if num.isdigit():
+        break
+
+num = int(num)
+
+for i in range(num, 0, -1):
+    print(i)
+
+# alternative solution without break/continue:
+
 num = input('Enter a positive whole number: ')
 while (num.isdigit() == False) or (int(num) % 1 != 0) or (int(num) <= 0):
-    print()
     num = input('Invalid entry. Enter a positive whole number: ')
 
 num = int(num)
