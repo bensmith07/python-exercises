@@ -62,12 +62,13 @@ failure_message = 'Student may not enroll in this class.'
 
 class_is_full = False
 class_schedule_conflict = False
+can_enroll = not class_is_full and not class_schedule_conflict
 
-if class_is_full or class_schedule_conflict:
-    print(failure_message)
-else:
+if can_enroll:
     enroll()
     print(success_message)
+else:
+    print(failure_message)
 
 
 # 4)  A product offer can be applied only if people buys more than
@@ -82,20 +83,17 @@ offer_failure_message = 'Cannot apply offer. Must be more than 2 items.'
 
 min_items = 3
 
-items_in_cart = 3
-is_premium_member = False
+items_in_cart = 1
+is_premium_member = True
 offer_expired = False
 
-if not offer_expired:
-    if is_premium_member:
-        apply_offer()
-        print(offer_success_message)
-    else:
-        if items_in_cart >= min_items:
-            apply_offer()
-            print(offer_success_message)
-        else:
-            print(offer_failure_message)
+eligible = not offer_expired and (items_in_cart >= min_items 
+                                  or is_premium_member)
+if eligible:
+    apply_offer()
+    print(offer_success_message)
+else:
+    print(offer_failure_message)
 
 # 5)  Create a variable that holds a boolean value for each 
 # of the following conditions:
@@ -111,21 +109,25 @@ def create_account():
 success_message = 'Account created.'
 failure_message = 'Invalid username/password combination.'
 
-username = 'codeup'
-password = 'notastrongpassword'
-
 min_chars = 5
 max_chars = 20
+
+username = 'codeup'
+password = 'notastrongpassword'
 
 password_meets_min_chars = len(password) >= min_chars
 username_meets_max_chars = len(username) <= max_chars
 username_password_are_unique = username != password
-username_password_no_whitespace = username == username.strip()
+username_no_whitespace = username == username.strip()
+password_no_whitespace = password == password.strip()
 
-if (password_meets_min_chars
-and username_meets_max_chars
-and username_password_are_unique
-and username_password_no_whitespace):
+credentials_valid = (password_meets_min_chars
+                     and password_no_whitespace
+                     and username_meets_max_chars
+                     and username_no_whitespace
+                     and username_password_are_unique)
+
+if credentials_valid:
     create_account()
     print(success_message)
 else:
