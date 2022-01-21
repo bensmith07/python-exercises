@@ -24,4 +24,6 @@ def is_two(val):
 ```python
 print(is_two(2))
 ```
-```True```
+```python
+True
+```
