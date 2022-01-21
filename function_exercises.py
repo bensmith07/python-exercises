@@ -223,3 +223,36 @@ def cumulative_sum(list1):
     # return the new list
     return sum_lst
 
+#############################################################################
+# BONUS
+# 
+# 1.  Create a function named twelveto24. It should accept a string in the 
+# format 10:45am or 4:30pm and return a string that is the representation of 
+# the time in a 24-hour format. Bonus write a function that does the opposite.
+
+   
+# TODO account for the midnight hour == 00          
+def twelveto24(time):
+
+    # if it is 1pm or after
+    if time[-2:] == 'pm' and len(time) == 6:
+        # get the first digit
+        first_digit = time[0]
+        # convert first digit to 2-digit version (add 12)
+        first_digit = str(int(first_digit) + 12)
+        # concat the remaining characters to the first digit
+        time = first_digit + time[1:]
+
+    # remove colon and am/pm characters
+    time = ''.join(time[:-2].split(':'))
+
+    # if the time is only three digits
+    if len(time) == 3:
+        # add a zero to the beginning
+        time = '0' + time
+
+    return time
+
+
+
+    

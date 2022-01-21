@@ -220,7 +220,7 @@ print(capitalize('alamosaurus'))
 >>> alamosaurus
 ```
 
-## Exercise [exercise number]
+## Exercise 5
 
 > Define a function named calculate_tip. It should accept a tip 
 > percentage (a number between 0 and 1) and the bill total, and return 
@@ -263,7 +263,7 @@ print(f'${calculate_tip(.2, 100):.2f}')
 >>> $20.00
 ```
 
-#################################################
+############## ~ Template ~ ##################
 ## Exercise [exercise number]
 
 > original problem description
@@ -280,6 +280,6 @@ Walkthrough:
 ```python
 [demo code here]
 ```
-```python
+```
 [result of demo code here]
 ```
