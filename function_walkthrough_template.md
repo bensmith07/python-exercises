@@ -16,7 +16,7 @@ Walkthrough:
 ```python
 [demo code here]
 ```
-```python
+```
 [result of demo code here]
 ```
 
