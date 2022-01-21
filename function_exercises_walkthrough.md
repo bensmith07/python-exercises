@@ -2,8 +2,8 @@
 
 ## Exercise 1:
 > Define a function named is_two. It should accept one input and return
-> True if the passed input is either the number or the string 2, False
-> otherwise.
+> `True` if the passed input is either the number `2` or the string `'2'`, 
+> and return `False` otherwise.
 
 ```python
 # the is_two function accepts a single parameter <num> which could be any 
@@ -17,9 +17,9 @@ def is_two(val):
 
 Walkthrough: 
 
-1. When we pass the number 2, the conditional will evaluate to True, and 
-   the resulting boolean value will be returned and passed to the print()
-   function. We will see 'True' printed in our console/notebook. 
+1. When we pass the number `2`, the conditional will evaluate to `True`, and 
+   the resulting boolean value will be returned and passed to the `print()`
+   function. We will see `True` printed in our console/notebook. 
 
 ```python
 print(is_two(2))
@@ -28,7 +28,7 @@ print(is_two(2))
 >>> True
 ```
 
-2. When we pass the string value '2', we get the same result, since 
+2. When we pass the string value `'2'`, we get the same result, since 
    this value is also contained in the list against which the conditional
    statement is checking. 
 
@@ -40,8 +40,8 @@ print(is_two('2'))
 ```
 
 3. When we pass something else, such as some other number or some other
-   string value, the conditional evaluates to False, which is then passed
-   to our print function and displayed in the console. 
+   string value, the conditional evaluates to `False`, which is then passed
+   to our `print()` function and displayed in the console. 
 
 ```python
 print(is_two(4))
@@ -59,8 +59,8 @@ print(is_two('New York City'))
 
 ## Exercise 2
 
-> Define a function named is_vowel. It should return True if the passed 
-> string is a vowel, False otherwise.
+> Define a function named is_vowel. It should return `True` if the passed 
+> string is a vowel, `False` otherwise.
 
 ```python
 # The is_vowel() function accepts a single parameter <letter>, which is 
@@ -76,8 +76,8 @@ def is_vowel(letter):
 Walkthrough:
 
 1. When we pass letters that are vowels, whether they are uppper or 
-   lower case, the conditional evaluates to True. That boolean value
-   is passed to our print() function and displayed in the console. 
+   lower case, the conditional evaluates to `True`. That boolean value
+   is passed to our `print()` function and displayed in the console. 
 
 ```python 
 print(is_vowel('a'))
@@ -93,7 +93,7 @@ print(is_vowel('E'))
 ```
 
 2. When we pass some other letter, or a string that is longer than one
-   letter, the conditional evaluates to False, and the resulting boolean
+   letter, the conditional evaluates to `False`, and the resulting boolean
    is passed to the print function and displayed in the console. 
 
 ```python 
@@ -111,8 +111,8 @@ print(is_vowel('Austin, TX'))
 
 ## Exercise 3
 
-> Define a function named is_consonant. It should return True if the 
-> passed string is a consonant, False otherwise. Use your is_vowel 
+> Define a function named is_consonant. It should return `True` if the 
+> passed string is a consonant, `False` otherwise. Use your `is_vowel()` 
 > function to accomplish this.
 
 ```python
@@ -132,23 +132,23 @@ def is_consonant(letter):
 Walkthrough:
 
 1. If we pass a letter that is a consonant, the letter is first passed to the
-   is_vowel() function (inside our is_consonant() function). This evaluates to 
-   False, and the is_consonant function returns the opposite, which is True. 
-   This boolean is passed to our print() function and displayed in the console. 
+   `is_vowel()` function (inside our `is_consonant()` function). This evaluates to 
+   `False`, and the `is_consonant()` function returns the opposite, which is `True`. 
+   This boolean is passed to our `print()` function and displayed in the console. 
 
 ```python
-print(is_consonant'B')
+print(is_consonant('B'))
 ```
 ```python
 >>> True
 ```
 
 2. If we pass a letter that is not a consonant, the opposite happens. The
-   is_vowel() function evaluates to True, and the is_consonant() function 
-   returns its opposte, False. 
+   `is_vowel()` function evaluates to `True`, and the `is_consonant()` function 
+   returns its opposte, `False`. 
 
 ```python
-print(is_consonant'I')
+print(is_consonant('I'))
 ```
 ```python
 >>> False
@@ -182,10 +182,10 @@ def capitalize(word):
 Walkthrough:
 
 1. When we pass a word to the function whose first letter is a consonant,
-   the function will first use our previously defined is_consonant() function
+   the function will first use our previously defined `is_consonant()` function
    to determine whether the first letter is a consonant. If so, we use the 
-   builtin str.capitalize() method to capitalize the first letter of the word
-   and return the resulting string. This is passed to our print function and 
+   builtin `str.capitalize()` method to capitalize the first letter of the word
+   and return the resulting string. This is passed to our `print()` function and 
    displayed in the console. 
 
 ```python
@@ -197,14 +197,27 @@ print(capitalize('tyrannosaurus'))
 
 2. Interestingly, we can also pass a string that has more than one word, 
    such as a book title. As long as the first letter of the entire string
-   is a consonant, our str.capitalize() method will turn the first letter of
-   each word to uppercase and return the resulting string. 
+   is a consonant, our `str.capitalize()` builtin method will turn the first 
+   letter of each word to uppercase and return the resulting string. 
 
 ```python
 print(capitalize('tyrannosaurus rex goes to college'))
 ```
 ```python
 >>> Tyrannosaurus Rex Goes To College
+```
+
+3. However, if we pass a word whose first letter is a vowel, the `is_consonant()`
+   function inside our `capitalize()` function will evaluate to `False`. The function 
+   will then continue to the `else` clause of our `if` statement, which returns
+   the same version of the string that was passed to the `capitalize()` function 
+   originally. 
+
+```python
+print(capitalize('alamosaurus'))
+```
+```python
+>>> alamosaurus
 ```
 
 #################################################
