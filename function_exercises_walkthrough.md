@@ -24,7 +24,7 @@ Walkthrough:
 ```python
 print(is_two(2))
 ```
-```python
+```
 >>> True
 ```
 
@@ -35,7 +35,7 @@ print(is_two(2))
 ```python
 print(is_two('2'))
 ```
-```python
+```
 >>> True
 ```
 
@@ -46,14 +46,14 @@ print(is_two('2'))
 ```python
 print(is_two(4))
 ```
-```python
+```
 >>> False
 ```
 
 ```python
 print(is_two('New York City'))
 ```
-```python
+```
 >>> False
 ```
 
@@ -82,13 +82,13 @@ Walkthrough:
 ```python 
 print(is_vowel('a'))
 ```
-```python
+```
 >>> True
 ```
 ```python 
 print(is_vowel('E'))
 ```
-```python
+```
 >>> True
 ```
 
@@ -99,13 +99,13 @@ print(is_vowel('E'))
 ```python 
 print(is_vowel('Z'))
 ```
-```python
+```
 >>> False
 ```
 ```python 
 print(is_vowel('Austin, TX'))
 ```
-```python
+```
 >>> False
 ```
 
@@ -139,7 +139,7 @@ Walkthrough:
 ```python
 print(is_consonant('B'))
 ```
-```python
+```
 >>> True
 ```
 
@@ -150,7 +150,7 @@ print(is_consonant('B'))
 ```python
 print(is_consonant('I'))
 ```
-```python
+```
 >>> False
 ```
 
@@ -191,7 +191,7 @@ Walkthrough:
 ```python
 print(capitalize('tyrannosaurus'))
 ```
-```python
+```
 >>> Tyrannosaurus
 ```
 
@@ -203,7 +203,7 @@ print(capitalize('tyrannosaurus'))
 ```python
 print(capitalize('tyrannosaurus rex goes to college'))
 ```
-```python
+```
 >>> Tyrannosaurus Rex Goes To College
 ```
 
@@ -216,8 +216,51 @@ print(capitalize('tyrannosaurus rex goes to college'))
 ```python
 print(capitalize('alamosaurus'))
 ```
-```python
+```
 >>> alamosaurus
+```
+
+## Exercise [exercise number]
+
+> Define a function named calculate_tip. It should accept a tip 
+> percentage (a number between 0 and 1) and the bill total, and return 
+> the amount to tip.
+
+```python
+# The calculate_tip() function accepts two parameters, which are expected
+# to be numbers. The first parameter <rate> is the desired tip percentage
+# in the form of a float between 0 and 1. The second parameter <total>
+# is the total bill prior to the tip amount being applied. The function 
+# will return a float which is the required tip amount. We will assume the 
+# inputs are valid number values
+def calculate_tip(rate, total):
+    # Multiply the tip percentage by the bill total and return the result
+    # as the required tip amount
+    return rate * total
+```
+
+Walkthrough:
+
+1. In the following code, we use .2 as our first positional argument, and 
+   100 as the second. This represents a 20% tip on a $100 check. The two
+   values are multiplied together, and the function returns the required
+   tip amount of 20. 
+
+```python
+print(calculate_tip(.2, 100))
+```
+```
+>>> 20
+```
+
+   If we include some f-string formatting, we'll see the output in a more 
+   appropriate currency format. 
+
+```python
+print(f'${calculate_tip(.2, 100):.2f}')
+```
+```
+>>> $20.00
 ```
 
 #################################################

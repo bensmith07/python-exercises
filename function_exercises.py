@@ -7,13 +7,9 @@
 # value, and returns a boolean value based on whether that value is the 
 # number 2 or the string '2'
 def is_two(val):
-    # determine whether the value is the number 2 or the string '2'
-    if val in [2, '2']:
-        # if so, return True
-        return True
-    else:
-        # otherwise, return False
-        return False
+    # evaluate the conditional based on whether the passed value is in
+    # our list, and return the resulting boolean value of True or False
+    return val in [2, '2']
 
 #############################################################################
 ### 2. Define a function named is_vowel. It should return True if the passed 
@@ -24,14 +20,9 @@ def is_two(val):
 # boolean value based on whether the character is a vowel.
 # We will assume the input will always be a string value.
 def is_vowel(letter):
-    # Make the input string uppercase, then determine whether it matches
-    # any character in our list of uppercase vowels.
-    if letter.upper() in ['A', 'E', 'I', 'O', 'U']:
-        # If so, return True.
-        return True
-    else:
-        # Otherwise, return False.
-        return False
+    # Make the input string uppercase, then determine whether it exists
+    # in a  list of uppercase vowels. Return the resulting boolean value. 
+    return letter.upper() in ['A', 'E', 'I', 'O', 'U']
 
 #############################################################################
 ### 3. Define a function named is_consonant. It should return True if the 
@@ -43,14 +34,12 @@ def is_vowel(letter):
 # based on whether that character is a consonant. We will assume the input
 # is a valid string value. 
 def is_consonant(letter):
-    # Use the previously defined function is_vowel() to determine whether
-    # the character is a vowel
-    if is_vowel(letter):
-        # If it is a vowel, it must not be a consonant, so we return False.
-        return False
-    else:
-        # If it is not a vowel, it is a consonant, so we return True. 
-        return True
+    # Since a letter that is not a vowel must be a consonant,
+    # we evaluate whether the letter is a vowel using our previously 
+    # defined is_vowel() function. We then use the <not> operator to 
+    # return the opposite of the boolean value returned by the is_vowel()
+    # function. 
+    return not is_vowel(letter)
 
 #############################################################################
 ### 4. Define a function that accepts a string that is a word. The 
