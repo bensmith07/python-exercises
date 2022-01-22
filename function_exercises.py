@@ -225,7 +225,8 @@ def cumulative_sum(list1):
 
 #############################################################################
 # BONUS
-# 
+
+#############################################################################
 # 1.  Create a function named twelveto24. It should accept a string in the 
 # format 10:45am or 4:30pm and return a string that is the representation of 
 # the time in a 24-hour format. 
@@ -267,6 +268,7 @@ def twelveto24(time):
 
     return time
 
+#############################################################################
 # 1a. Write a function that does the opposite
 
 def twentyfourto12(time):
@@ -280,7 +282,6 @@ def twentyfourto12(time):
     elif time[0] == '0':
         # remove the first digit, add colon and 'am'
         time = time[1] + ':' + time[-2:] + 'am'
-
 
     # if time between 1000 - 1159:
     elif time[:2] in ['10', '11']:
@@ -299,4 +300,31 @@ def twentyfourto12(time):
 
     return time
 
-    
+#############################################################################
+# 2. Create a function named col_index. It should accept a spreadsheet 
+#    column name, and return the index number of the column.
+#    col_index('A') returns 1
+#    col_index('B') returns 2
+#    col_index('AA') returns 27
+
+
+def col_index(col_name):
+
+    alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    col_lst = []
+
+    for letter in alphabet:
+        col_lst.append(letter)
+
+    for letter in alphabet:
+        for letter2 in alphabet:
+            col_lst.append(letter + letter2)
+
+    for letter in alphabet:
+        for letter2 in alphabet:
+            for letter3 in alphabet:
+                col_lst.append(letter + letter2 + letter3)
+
+    return (col_lst.index(col_name)) + 1
+        
+#############################################################################
