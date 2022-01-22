@@ -228,31 +228,75 @@ def cumulative_sum(list1):
 # 
 # 1.  Create a function named twelveto24. It should accept a string in the 
 # format 10:45am or 4:30pm and return a string that is the representation of 
-# the time in a 24-hour format. Bonus write a function that does the opposite.
-
+# the time in a 24-hour format. 
    
-# TODO account for the midnight hour == 00          
 def twelveto24(time):
 
-    # if it is 1pm or after
+    # if the time is between 1:00pm and 9:59pm 
     if time[-2:] == 'pm' and len(time) == 6:
         # get the first digit
-        first_digit = time[0]
-        # convert first digit to 2-digit version (add 12)
-        first_digit = str(int(first_digit) + 12)
-        # concat the remaining characters to the first digit
-        time = first_digit + time[1:]
+        hr_digits = time[0]
+        # add 12 to the first digit
+        hr_digits = str(int(hr_digits) + 12)
+
+        # concat the remaining characters to the hour digit
+        time = hr_digits + time[1:]
+
+    # if the time isbetween 10:00pm and 11:59pm
+    elif time[-2:] == 'pm' and time[:2] in ['10', '11']:
+        # get the first two digits
+        hr_digits = time[:2]
+        # add 12 to the first digits
+        hr_digits = str(int(hr_digits) + 12)
+
+        # concat the remaining characters to the hour digit
+        time = hr_digits + time[2:]
+        
+    # if the time is between 12:00am and 12:59am
+    elif time[-2:] == 'am' and time[:2] == '12':
+        # replace the first two digits with '00'
+        time = '00' + time[-5:]
 
     # remove colon and am/pm characters
     time = ''.join(time[:-2].split(':'))
 
-    # if the time is only three digits
+    # if the resulting time is only three digits
     if len(time) == 3:
         # add a zero to the beginning
         time = '0' + time
 
     return time
 
+# 1a. Write a function that does the opposite
 
+def twentyfourto12(time):
+
+    # if time between 0000 - 0059
+    if time[:2] == '00':
+        # change the first two digits to 12, add colon and 'am'
+        time = '12' + ':' + time[-2:] + 'am'
+
+    # if time between 0100 - 0959
+    elif time[0] == '0':
+        # remove the first digit, add colon and 'am'
+        time = time[1] + ':' + time[-2:] + 'am'
+
+
+    # if time between 1000 - 1159:
+    elif time[:2] in ['10', '11']:
+        # add colon and 'am'
+        time = time[:2] + ':' + time[-2:] + 'am'
+
+    # if time between 1200 - 1259
+    elif time[:2] == '12':
+        # add colon and 'pm'
+        time = time[:2] + ':' + time[-2:] + 'pm'
+
+    # if time between 1300 - 2359
+    elif int(time[:2]) in range(13, 24):
+        # subtract 12 from first two digits, add colon and 'pm
+        time = str(int(time[:2]) - 12) + ':' + time[-2:] + 'pm'
+
+    return time
 
     
